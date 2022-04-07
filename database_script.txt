@@ -1,0 +1,72 @@
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+-- -----------------------------------------------------
+-- Schema simple_database
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema simple_database
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `simple_database` DEFAULT CHARACTER SET utf8 ;
+USE `simple_database` ;
+
+-- -----------------------------------------------------
+-- Table `simple_database`.`Book`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `simple_database`.`Book` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `description` VARCHAR(250) NOT NULL,
+  `title` VARCHAR(90) NOT NULL,
+  `author` VARCHAR(90) NOT NULL,
+  PRIMARY KEY (`id`), 
+UNIQUE INDEX `id_UNIQUE` (`id` ASC))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `simple_database`.`Movie`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `simple_database`.`Movie` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `description` VARCHAR(250) NOT NULL,
+  `title` VARCHAR(90) NOT NULL,
+  `director` VARCHAR(90) NOT NULL,
+  PRIMARY KEY (`id`), 
+UNIQUE INDEX `id_UNIQUE`(`id` ASC))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `simple_database`.`Song`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `simple_database`.`Song` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `description` VARCHAR(250) NOT NULL,
+  `title` VARCHAR(90) NOT NULL,
+  `singer` VARCHAR(90) NOT NULL,
+  PRIMARY KEY (`id`), 
+UNIQUE INDEX `id_UNIQUE`(`id` ASC))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `simple_database`.`Tag`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `simple_database`.`Tag` (
+  `description` VARCHAR(45) NOT NULL,
+  `category_id` INT NOT NULL,
+  `category_name` VARCHAR(45) NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE`(`id` ASC))
+ENGINE = InnoDB;
+
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
